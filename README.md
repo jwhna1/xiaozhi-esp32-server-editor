@@ -1,2 +1,140 @@
-# xiaozhi-esp32-server-editor
-小智ESP32服务端配置编辑器是一个图形化工具，专为 xiaozhi-esp32-server 项目设计，旨在简化配置文件的编辑过程。通过直观的界面，用户可以轻松查看和修改 `data/.config.yaml` 文件中的各项配置，无需手动编辑YAML文件。The XiaoZhi ESP32 Server Configuration Editor is a graphical tool specifically designed for the project https://github.com/xinnan-tech/xiaozhi-esp32-server, aiming to simp
+# 小智ESP32服务端配置编辑器
+
+@config_editor.py 感谢 [github.com/xinnan-tech/xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server) 大佬们开源项目让我们体验本地的小智服务系统。
+
+## 项目简介
+
+小智ESP32服务端配置编辑器是一个图形化工具，专为 xiaozhi-esp32-server 项目设计，旨在简化配置文件的编辑过程。通过直观的界面，用户可以轻松查看和修改 `data/.config.yaml` 文件中的各项配置，无需手动编辑YAML文件。
+
+![小智ESP32服务端配置编辑器](https://znhblog.com/static/img/bdfad1d57be1564e618faad4589eb2af.20250313211705.webp)
+
+## 主要功能
+
+- **图形化界面**：直观的用户界面，使配置编辑更加简单
+- **配置文件加载与保存**：支持加载和保存YAML配置文件，保留原始格式和注释
+- **多语言支持**：界面元素使用中文显示，提升用户体验
+- **模块化配置**：分类显示各模块配置，包括服务器设置、日志设置、模块选择等
+- **自动检测更新**：启动时自动检查是否有新版本可用
+- **首次启动检测**：首次启动时自动检测配置文件和目录，提示用户创建
+
+## 功能详解
+
+### 配置文件管理
+- 加载配置文件：支持从任意位置加载YAML配置文件
+- 保存配置文件：保存修改后的配置，同时保留原始格式和注释
+- 重置配置：将配置重置为加载时的状态
+
+### 模块配置
+- **服务器设置**：配置IP地址、端口和认证信息
+- **日志设置**：设置日志级别、格式和存储位置
+- **模块选择**：选择使用的VAD、ASR、LLM、TTS等模块
+- **提示词编辑**：编辑AI的提示词，决定其行为和回复风格
+- **音乐设置**：配置音乐目录和相关参数
+- **其他设置**：包括退出命令、无语音断开时间等
+
+### 特色功能
+- **令牌列表编辑**：通过YAML文本直接编辑令牌列表，更加灵活
+- **动态模块选择**：根据配置文件自动识别可用模块
+- **应用更改按钮**：统一应用所有修改，提高操作效率
+- **滚动视图**：支持长内容的滚动显示，确保所有配置项可见
+
+## 安装与使用
+
+### 下载
+从 [Releases](https://github.com/jwhna1/xiaozhi-esp32-config-editor/releases) 页面下载最新版本的可执行文件。
+我用夸克网盘分享了「小智ESP32服务端编辑器.zip」，点击链接即可保存。打开「夸克APP」，无需下载在线播放视频，畅享原画5倍速，支持电视投屏。
+链接：https://pan.quark.cn/s/ab4c9229eda7
+或者从以下地址获取最新版本
+**博客**：[https://znhblog.com](https://znhblog.com)
+**B站**：[https://space.bilibili.com/298384872](https://space.bilibili.com/298384872)
+
+### 运行
+1. 解压下载的文件
+2. 双击运行 `config_editor.exe`（Windows）或 `config_editor`（Linux/macOS）
+3. 首次运行时，程序会检查 `data/.config.yaml` 文件是否存在
+   - 如果不存在，会提示从 `config.yaml` 创建或创建空文件
+4. 加载完成后，即可开始编辑配置
+
+### 编辑配置
+1. 从左侧菜单选择要编辑的配置项
+2. 在右侧编辑区修改配置值
+3. 点击右下角的"应用更改"按钮应用修改
+4. 完成后点击"保存到文件"按钮保存到配置文件
+
+## 开发信息
+
+### 技术栈
+- Python 3.x
+- Tkinter (GUI库)
+- ruamel.yaml (YAML处理库)
+
+### 自行构建
+如果您想自行运行源代码或构建程序，需要安装以下Python库：
+
+```bash
+# requirements.txt
+ruamel.yaml==0.17.21
+PyYAML==6.0
+pyinstaller==5.9.0  # 仅用于构建可执行文件
+```
+
+主要依赖说明：
+- **ruamel.yaml**: 用于处理YAML文件，保留注释和格式
+- **PyYAML**: 用于简单的YAML处理
+- **tkinter**: Python标准库，用于创建GUI界面（无需单独安装）
+## 常见问题
+
+**Q: 为什么保存后配置文件的格式发生了变化？**  
+A: 最新版本使用ruamel.yaml库保存配置，能够保留原始格式和注释。如果仍有问题，请更新到最新版本。
+
+**Q: 如何添加新的令牌？**  
+A: 在左侧菜单选择"服务器设置"，然后编辑"令牌列表"部分。您可以直接在YAML文本框中添加新的令牌项。
+
+**Q: 如何更改使用的模块？**  
+A: 在左侧菜单选择"模块选择"，然后在下拉菜单中选择要使用的模块类型。
+    
+由于这是我开发的第一个工具，可能还有些不足，请各位嘴下留情，多点包容
+## 联系方式
+
+- **作者**：曾能混
+- **博客**：[https://znhblog.com](https://znhblog.com)
+- **B站**：[https://space.bilibili.com/298384872](https://space.bilibili.com/298384872)
+- **QQ**：7280051
+- **邮箱**：jwhna1@gmail.com
+
+如有问题可加微信群一起沟通（在B站私信索取微信群加群二维码）
+
+## 更新日志
+
+### v0.1.4
+- 添加版本检测和更新功能
+- 修复tokens列表编辑问题
+- 优化用户界面，添加全局应用按钮
+
+### v0.1.3
+- 添加"关于"对话框
+- 添加中文界面支持
+- 修复多项bug
+
+### v0.1.2
+- 添加配置文件加载功能
+- 优化菜单布局
+
+### v0.1.1
+- 添加启动检测逻辑
+- 修复编辑器显示问题
+
+### v0.1.0
+- 初始版本发布
+
+## 许可证
+
+本项目基于 MIT 许可证开源。
+
+## 致谢
+
+特别感谢 [github.com/xinnan-tech/xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server) 项目的开发者们，他们的开源项目让我们能够体验本地的小智服务系统。
+
+---
+
+如果您觉得这个工具有用，请给原项目 [xiaozhi-esp32-server](https://github.com/xinnan-tech/xiaozhi-esp32-server) 点个星标⭐！

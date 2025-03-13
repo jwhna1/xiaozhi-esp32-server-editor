@@ -42,8 +42,8 @@
 
 ### 下载
 从 [Releases](https://github.com/jwhna1/xiaozhi-esp32-config-editor/releases) 页面下载最新版本的可执行文件。
-我用夸克网盘分享了「小智ESP32服务端编辑器.zip」，点击链接即可保存。打开「夸克APP」，无需下载在线播放视频，畅享原画5倍速，支持电视投屏。
-链接：https://pan.quark.cn/s/ab4c9229eda7
+夸克网盘分享了「小智ESP32服务端配置编辑器v0.1.4.zip」，点击链接即可保存。打开「夸克APP」，无需下载在线播放视频，畅享原画5倍速，支持电视投屏。
+链接：https://pan.quark.cn/s/30d6ff39e075
 或者从以下地址获取最新版本
 **博客**：[https://znhblog.com](https://znhblog.com)
 **B站**：[https://space.bilibili.com/298384872](https://space.bilibili.com/298384872)
